@@ -6,6 +6,18 @@ usb3_count=2
 usb3_flag="Class=MassStorage,Driver=usb-storage,5000M"
 usb2_flag="Class=MassStorage,Driver=usb-storage,480M"
 
+
+n=15
+while [ $n -ge 0 ]
+do
+        echo -ne $n.
+        sleep 1
+        let "n = $n - 1"
+done
+echo ""
+
+
+
 lsusb -t > log
 str=$(cat log)
 str=$(echo $str | sed 's/ //g')  #remove spance
@@ -34,7 +46,20 @@ if [ $ng_flag -ne 0 ]; then
 fi
 
 echo "------------------------------"
-read -p "unplug usb and plug agaiin:" input_data
+echo "unplug usb and plug agaiin:"
+
+n=12
+while [ $n -ge 0 ]
+do
+        echo -ne $n.
+        sleep 1
+        let "n = $n - 1"
+done
+echo ""
+
+
+
+
 lsusb -t > log
 str=$(cat log)
 str=$(echo $str | sed 's/ //g')  #remove spance
