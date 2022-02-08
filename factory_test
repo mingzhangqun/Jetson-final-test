@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+show_result() {
+	echo ""
+	echo ""
+	r=$1
+	if [ $r -ne 0 ]; then
+		echo -e "\e[31m->Test FAIL \e[0m"
+		exit $r
+	fi
+}
+
+echo $1
+./auto_usb
+r=$?
+show_result $r
+./auto_iperf $1
+r=$?
+show_result $r
+./auto_csi
+r=$?
+show_result $r
+
+echo -e "\e[32m->Test OK \e[0m"
+
+

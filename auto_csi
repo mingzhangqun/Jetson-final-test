@@ -18,13 +18,13 @@ csi0_test()
 
 csi1_test()
 {
-	./v4l2_test -d /dev/video16
+	./v4l2_test -d /dev/video1
 	r=$?
 	if [ "$r" -eq 0 ]; then
-        	echo "Video16 OK"
+        	echo "Video1 OK"
         	echo "text&csi1#ok" > ../status/s_csi
 	else
-        	echo "Video16 FAIL"
+        	echo "Video1 FAIL"
         	echo "text&csi1#failed" > ../status/s_csi
         	return 3
 	fi
