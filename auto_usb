@@ -2,12 +2,12 @@
 
 ng_flag=0
 usb2_count=2
-usb3_count=2
+usb3_count=1
 usb3_flag="Class=MassStorage,Driver=usb-storage,5000M"
 usb2_flag="Class=MassStorage,Driver=usb-storage,480M"
 
 
-n=15
+n=3
 while [ $n -ge 0 ]
 do
         echo -ne $n.
@@ -46,7 +46,7 @@ if [ $ng_flag -ne 0 ]; then
 fi
 
 echo "------------------------------"
-echo "unplug usb and plug agaiin:"
+echo "unplug usb and plug again:"
 
 n=12
 while [ $n -ge 0 ]

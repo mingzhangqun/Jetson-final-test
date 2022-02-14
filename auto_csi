@@ -33,6 +33,10 @@ csi1_test()
 
 
 
+echo "*************************"
+echo "* CSI"
+echo "*************************"
+
 cd v4l2_test
 csi0_test
 r=$r

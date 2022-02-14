@@ -15,12 +15,20 @@ show_result() {
 }
 
 echo $1
-./auto_usb
+./auto_wlan0
 r=$?
 show_result $r
-./auto_iperf $1
+
+./auto_bt
+
+./auto_usb_speed
 r=$?
 show_result $r
+
+./auto_ping $1
+r=$?
+show_result $r
+
 ./auto_csi
 r=$?
 show_result $r
