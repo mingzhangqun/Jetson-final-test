@@ -2,8 +2,8 @@
 
 
 show_result() {
-	echo ""
-	echo ""
+#	echo ""
+#	echo ""
 	r=$1
 	if [ $r -ne 0 ]; then
 		echo -e "\e[31m->Test FAIL \e[0m"
@@ -14,32 +14,45 @@ show_result() {
 	fi
 }
 
+count = 0
+while [ 1 ]
+do
+
+# print header
+echo ""
+echo ""
+echo ""
+echo "-------------------------"
+let "count = $count + 1"
+echo count=$count
+echo "-------------------------"
 echo $1
+echo ""
+
 ./auto_wlan0
-r=$?
-show_result $r
 
 ./auto_bt
 
 ./auto_usb_speed
-r=$?
-show_result $r
+#r=$?
+#show_result $r
 
 ./auto_ping $1
-r=$?
-show_result $r
 
 ./auto_csi
-r=$?
-show_result $r
+#r=$?
+#show_result $r
 
-echo -e "\e[32m->Test OK, sys will power off in 5s \e[0m"
-n=5
-while [ $n -ge 0 ]
-do
-        echo -ne $n.
-        sleep 1
-        let "n = $n - 1"
+sleep 1
 done
-echo ""
-poweroff
+
+#echo -e "\e[32m->Test OK, sys will power off in 5s \e[0m"
+#n=5
+#while [ $n -ge 0 ]
+#do
+#        echo -ne $n.
+#        sleep 1
+#        let "n = $n - 1"
+#done
+#echo ""
+#poweroff

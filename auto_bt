@@ -8,3 +8,4 @@ hciconfig hci0 up
 hcitool scan
 
 echo ""
+echo ""
